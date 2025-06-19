@@ -1,0 +1,24 @@
+.post {
+    width: 500px;
+    border: 2px solid rgb(3, 82, 55);
+    margin: 10px;
+}
+.title {
+    color: black;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+}
+
+hr {
+    margin-left: 4px;
+    margin-right: 4px;
+    background-color: gray;
+    height: 2px;
+}
+
+.text {
+    color: rgb(162, 158, 158);
+    font-size: small;
+    text-align: center;
+}

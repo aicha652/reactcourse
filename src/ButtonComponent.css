@@ -1,0 +1,21 @@
+.container {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+    border: 2px solid rgb(3, 82, 55);
+    margin-right: 50px;
+    margin-top: 10px;
+    margin-left: -350px;
+    flex-wrap: wrap;
+    margin-bottom: -5px;
+}
+
+button {
+    height: 20px;
+    background-color: blueviolet;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+}
