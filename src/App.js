@@ -6,19 +6,18 @@ import PostComponent from './PostComponent';
 
 function App() {
   const tasks = [
-    {id: 1, title: "task 1"},
-    {id: 2, title: "task 2"},
+    {id: 1, name: "task1"},
+    {id: 2, name: "task2"},
   ]
-  const myTasks = tasks.map((task) => {
+
+  const listTasks = tasks.map((task) =>{
     return(
-    <div><li key={task.id}>{task.title}</li></div>
-  )
-});
+      <li key={task.id} >{ task.name }</li>
+    )
+  })
   return (
     <div className="App">
-
-      <div style={{ background: "red" }}>{myTasks}</div>
-      
+      <div>{ listTasks }</div>
       {/*
       <HeaderComponent />
       <div className="body">
