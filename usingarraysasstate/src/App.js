@@ -1,3 +1,4 @@
+import { editableInputTypes } from '@testing-library/user-event/dist/utils';
 import './App.css';
 import {useState} from "react";
 
@@ -21,9 +22,24 @@ function App() {
     setDevices(newDevices)
   }
 
+  function handleEditClick(id) {
+    const editDevices = devices.map((device) =>{
+      if(device.id == id){
+        let newdevice = {...device, name: device.name + "0"}
+        return newdevice
+      }
+      else {
+        return device
+      }
+    })
+    setDevices(editDevices)
+  }
+
   const devicesList = devices.map((device) =>{
     return(
-      <li key={device.id}>{device.name}<button onClick={() => handleDeleteClick(device.id)}>Delete</button></li>
+      <li key={device.id}>{device.name}
+      <button onClick={() => handleDeleteClick(device.id)}>Delete</button>
+      <button onClick={() => handleEditClick(device.id)}>Edit</button></li>
     )
   })
 
