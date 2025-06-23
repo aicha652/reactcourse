@@ -1,0 +1,28 @@
+.container {
+    width: 600px;
+    height: 400px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 100px;
+    margin-left: 300px;
+    background-color: blue;
+    color: #fff;
+}
+hr{
+    width: 580px;
+}
+select {
+    height: 25px;
+}
+button{
+    width: 50px;
+    margin-left: 260px;
+    width: 80px;
+    height: 30px;
+    margin-top: 10px;
+}
