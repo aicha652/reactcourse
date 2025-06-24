@@ -17,7 +17,7 @@ export default function Form() {
 
     const [ageError, setAgeError] = useState("")
 
-    const [successMessage, setSuccessMessage] = useState("")
+    const[successMessage, setSuccessMessage] = useState("")
 
     function handleCheckboxChange(event) {
         setInfos({...infos, employee: event.target.checked})
@@ -40,14 +40,18 @@ export default function Form() {
         if(ageNumber <= 18 || ageNumber >= 100){
             setAgeError("Age is not allowed")
         }
-        if(isNameValid && isPhoneValid && isAgeValid) {
-            setSuccessMessage("Form submitted successfully 🎉")
+        if(isNameValid && isPhoneValid && isAgeValid && ageNumber > 18 && ageNumber < 100) {
+            setSuccessMessage("form submitted successfully 🎉")
         }
 
-        // Hide message after 3 seconds (optional)
         setTimeout(() => {
-            setSuccessMessage("");
-        }, 3000);
+            setSuccessMessage("")
+        }, 5000)
+
+        // Hide message after 3 seconds (optional)
+        //setTimeout(() => {
+        //    setSuccessMessage("");
+        //}, 3000);
     }
 
     //check if all required fields are filled
@@ -120,13 +124,13 @@ export default function Form() {
                  className={isFormValid? "active-button" : "disabled-button"}
                  type="submit"
                  >Submit</button>
-                 {successMessage && 
+                 {successMessage &&
                   <div className="popup-overlay">
                     <div className="popup-modal">
                         {successMessage}
                     </div>
                   </div>
-                }
+                  }
             </form>
         </div>
     )
