@@ -4,6 +4,7 @@ import Avatar from '@mui/material/Avatar';
 import Checkbox from '@mui/material/Checkbox';
 import Slider from '@mui/material/Slider';
 import Chip from '@mui/material/Chip';
+import Container from '@mui/material/Container';
 //import { deepOrange, deepPurple } from '@mui/material/colors';
 
 
@@ -11,7 +12,8 @@ export default function Material() {
 
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
   return (
-    <Stack direction="row" spacing={2}>
+    <Container maxWidth="sm">
+    <Stack direction="row" spacing={2} style={{ background: "gray" }} >
       <Button
        variant="contained" 
        /*style={{ backgroundColor: "#009688", color: "#e0f2f1" }}*/
@@ -32,7 +34,7 @@ export default function Material() {
       <Chip label="primary" color="primary" />
       <Chip label="success" color="success" />
     </Stack>
-
+    </Container>
     /*<Stack direction="row" spacing={2}>
       <Avatar>H</Avatar>
       <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar>

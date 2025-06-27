@@ -2,6 +2,8 @@ import './App.css';
 import Material from "./material.js"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { orange, purple } from '@mui/material/colors';
+import GridTest from './GridTest.js';
+import StackTest from './StackTest.js';
 
 
 const theme = createTheme({
@@ -19,8 +21,11 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div className="App" style={{ marginTop: "200px", marginLeft: "500px" }} >
-        <Material />
+      <div className="App" >
+        {/*<Material />*/}
+
+        {/*<GridTest />*/}
+        <StackTest />
       </div>
     </ThemeProvider>
   );
