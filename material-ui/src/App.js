@@ -22,10 +22,10 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App" >
-        {/*<Material />*/}
+        <Material />
 
-        {/*<GridTest />*/}
-        <StackTest />
+        {/*<GridTest />
+        <StackTest />*/}
       </div>
     </ThemeProvider>
   );

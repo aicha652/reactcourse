@@ -5,6 +5,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Slider from '@mui/material/Slider';
 import Chip from '@mui/material/Chip';
 import Container from '@mui/material/Container';
+import FormatListBulletedAddIcon from '@mui/icons-material/FormatListBulletedAdd';
 //import { deepOrange, deepPurple } from '@mui/material/colors';
 
 
@@ -33,6 +34,7 @@ export default function Material() {
 
       <Chip label="primary" color="primary" />
       <Chip label="success" color="success" />
+      <FormatListBulletedAddIcon style={{ background: "red", fontSize: "80px" }} />
     </Stack>
     </Container>
     /*<Stack direction="row" spacing={2}>
