@@ -9,11 +9,20 @@ export default function PostDetails(){
         return p.id == postId
     })
     console.log(post)
-    return (
-        <div>
-            <h2>Post Details</h2>
-            <h1>{post.title}</h1>
-            <p>{post.body}</p>
+    if(post){
+        return (
+            <div>
+                <h2>Post Details</h2>
+                <h1>{post.title}</h1>
+                <p>{post.body}</p>
         </div>
     );
+    }
+    else{
+        return(
+            <>
+               <h2>the post with id: {postId} id not exist</h2>
+            </>
+        )
+    }
 }
