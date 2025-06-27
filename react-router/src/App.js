@@ -6,6 +6,9 @@ import Posts from "./posts";
 import PostDetails from "./PostDetails"
 import { postsContext } from './contexts/postsContext.js';
 import NotFound from './NotFound.js';
+import NewPost from './NewPost.js';
+import DeletePost from './DeletePost.js';
+import PostLayout from './PostLayout.js';
 
 
 function App() {
@@ -45,8 +48,16 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/hello" element={<Hello />} />
-          <Route path="/posts"  element={<Posts />} />
-          <Route path="/postDetails/:postId" element={<PostDetails />} />
+
+          {/* Nested Routes */}
+          <Route path="/posts" element={<PostLayout />} >
+            <Route index  element={<Posts />} />
+            <Route path=":postId" element={<PostDetails />} />
+            <Route path="new" element={<NewPost />}  />
+            <Route path="delete" element={<DeletePost />}  />
+          </Route>
+
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
