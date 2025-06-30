@@ -8,12 +8,13 @@ import Popup from "./popup";
 export default function ToDoList() {
     const[taskInput, setTaskInput] = useState("")
     const[tasks, setTasks] = useState([])
+    const[done, setDone] = useState(false)
     const[index, setIndex] = useState(0)
 
     function handleAddClick() {
         console.log(tasks)
         if(taskInput.trim() !== ""){
-            let newTask = {name: taskInput, id: index}
+            let newTask = {name: taskInput, id: index, isDone: done}
             setTasks([...tasks, newTask])
         }
         setIndex(index + 1)
@@ -26,6 +27,7 @@ export default function ToDoList() {
         )
         setTasks([...filterTasks])
     }
+    
     function handleUpdateClick(taskId) {
         const updateTasks = tasks.map((task) =>{
             if(task.id == taskId){
@@ -34,6 +36,25 @@ export default function ToDoList() {
                 </div>
             }
         })
+    }
+
+    {/*function handleDoneClick(taskId) {
+        const tasksDone = tasks.map((task) =>{
+            if(task.id == taskId) {
+                
+            }
+        })
+    }*/}
+
+    function handleDoneTaskClick(taskId) {
+        console.log(tasks)
+        const updateDoneTask = tasks.map((task) =>{
+            if(task.id == taskId) {
+                return {...task, isDone: !task.isDone}
+            }
+            return task
+        })
+        setTasks(updateDoneTask)
     }
 
     const allTasks = tasks.map((task) =>{
@@ -54,9 +75,8 @@ export default function ToDoList() {
                                  fontSize: "25px"}}
                         />
                         <MdDone
-                         style={{borderRadius: "50%", color: "green", 
-                                 background: "#fff", border:"1px solid green",
-                                 fontSize: "25px"}}
+                         onClick={() => {handleDoneTaskClick(task.id)}}
+                         className={task.isDone ? "task-done" : "task-notdone" }
                          />
                     </div>
                 </div>)
@@ -66,6 +86,11 @@ export default function ToDoList() {
         <div className="container">
             <p>مهامي</p>
             <hr />
+            <div className="arrayTitles">
+                <button className="column">الكل</button>
+                <button className="column">منجز</button>
+                <button className="column">غير منجز</button>
+            </div>
             <div>
                 {tasks.length > 0 ? allTasks : <></>}
             </div>
