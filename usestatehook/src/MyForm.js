@@ -6,7 +6,9 @@ export default function MyForm() {
         {Name: "",
          Email: "", 
          GeneralInfo: "",
-         isStudent: false
+         isStudent: false,
+         Country: "",
+         status: ""
         })
     
         function handleCheckBoxChange(event) {
@@ -37,16 +39,61 @@ export default function MyForm() {
             value={InputForms.Email}
             onChange={(event) => {setInputForms({...InputForms, Email: event.target.value})} }
             />
+
             <br />
             <br />
+
             <label>Are you a student</label>
             <input 
             type="checkbox"
             checked={InputForms.isStudent}
             onChange={handleCheckBoxChange}
             />
+
             <br />
             <br />
+
+            <br />
+            <br />
+
+            <div>
+                <input 
+                 name="status"
+                 type="radio"
+                 value="Student"
+                 checked={InputForms.status == "Student"}
+                 onChange={(event) => {
+                    setInputForms({...InputForms, status: event.target.value})
+                 }}
+                 />Student
+                <input 
+                 name="status"
+                 type="radio"
+                 value="Teacher"
+                 checked={InputForms.status == "Teacher"}
+                 onChange={(event) => {
+                    setInputForms({...InputForms, status: event.target.value})
+                 }}
+                />Teacher
+            </div>
+
+            <br />
+            <br />
+
+            <select
+            value={InputForms.Country}
+            onChange={(event) => {
+                setInputForms({...InputForms, Country: event.target.value})
+            }}
+            >
+                <option>MOROCCO</option>
+                <option>EGYPT</option>
+                <option>SYRIA</option>
+            </select>
+
+            <br />
+            <br />
+
             <label>General Info: </label>
             <textArea 
             value={InputForms.GeneralInfo} 

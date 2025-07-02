@@ -11,6 +11,7 @@ export default function ToDoList() {
     const[done, setDone] = useState(false)
     const[index, setIndex] = useState(0)
     const[filteredTasks, setFilteredTasks] = useState([])
+    const[activeButton, setActiveButton] = useState("all")
 
     function handleAddClick() {
         console.log(tasks)
@@ -88,22 +89,25 @@ export default function ToDoList() {
                 <button 
                  onClick={() =>{
                     allTypes()
+                    setActiveButton("all")
                  }}
-                 className="column"
+                 className={`column ${activeButton == "all" ? "active" : ""}`}
                  >الكل
                 </button>
                 <button 
                  onClick={() =>{
                     handleDoneTasks()
+                    setActiveButton("doneTasks")
                  }}
-                 className="column"
+                 className={`column ${activeButton == "doneTasks" ? "active" : ""}`}
                  >منجز
                  </button>
                 <button
                  onClick={() => {
                     handleNotDoneTasks()
+                    setActiveButton("notDoneTasks")
                  }}
-                 className="column"
+                 className={`column ${activeButton == "notDoneTasks" ? "active" : ""}`}
                  >غير منجز
                  </button>
             </div>
