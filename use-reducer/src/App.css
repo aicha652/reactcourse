@@ -1,0 +1,23 @@
+body{
+  background-color: aqua;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-left: 580px;
+  margin-top: 200px;
+}
+
+.container input{
+  width: 150px
+}
+
+.operations {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  margin-right: 520px;
+  margin-top: 10px;
+}
