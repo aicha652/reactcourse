@@ -43,6 +43,9 @@ function App() {
   const isLoading = useSelector((state) =>{
     return state.weather.isLoading
   })
+  const temp = useSelector((state) => {
+    return state.weather.weather
+  })
 
   const { t, i18n } = useTranslation();
 
@@ -50,13 +53,6 @@ function App() {
   const[locale, setLocale] = useState("ar")
 
   console.log("render component")
-  const[temp, setTemp] = useState({
-    number: null,
-    description: "",
-    min: null,
-    max: null,
-    icon: null
-  })
 
   function handleLanguageClick(){
     if(locale=="ar"){
@@ -83,42 +79,6 @@ function App() {
   }, [])
   useEffect(() =>{
     setDateAndTime(moment().format('MMMM Do YYYY, h:mm:ss a'))
-    axios.get("https://api.openweathermap.org/data/2.5/weather?lat=33.44&lon=-94.04&appid=29f7d99a767467ab7d8ccae41490655e",
-             {
-              cancelToken: new axios.CancelToken((c) => {
-                cancelAxios = c
-              })
-             }
-            )
-    .then(function (response) {
-    // handle success
-     console.log(response.data)
-     const responseTemp = Math.round(response.data.main.temp - 272.15)
-     const min = Math.round(response.data.main.temp_min - 272.15)
-     const max = Math.round(response.data.main.temp_max - 272.15)
-     const description = response.data.weather[0].description
-     const responseIcon = response.data.weather[0].icon
-
-     setTemp({
-              number: responseTemp,
-              description: description,
-              min: min,
-              max: max,
-              icon: responseIcon
-            })
-
-     console.log(min, max, description)
-     console.log(response.data.main.temp - 272.15)
-    })
-    .catch(function (error) {
-    // handle error
-     console.log(error);
-    });
-
-    return () => {
-      console.log("cancelling")
-      cancelAxios();
-    }
   },[])
 
   return (
